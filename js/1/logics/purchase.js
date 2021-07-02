@@ -46,7 +46,7 @@ console.log('Операция завершена');
 
 * - В результате вывести сообщение "Оформляем заказ на сумму [сумма] со скидкой [скидка]%"
 */
-const totalSpent = 0;
+let totalSpent = 15000;
 let payment1 = 500;
 let discount = 0;
 
@@ -77,4 +77,11 @@ else {
 // } else if (totalSpent > 1000 && totalSpent < 5000) { discount = 5%
 // };
 // не правильно --- const total = payment1 - discount;
+
+//payment1 = payment1 - payment1 * discount;
+//короче
+payment1 -= payment1 * discount;
 console.log(`Оформляем заказ на сумму ${payment1} со скидкой ${discount * 100}%`);
+
+totalSpent += payment1;
+console.log(`Общая сумма потраченно в магазине: ${totalSpent}`);
