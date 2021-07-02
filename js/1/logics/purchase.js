@@ -12,8 +12,27 @@
 
 */
 
+// 1. вары
+// 2. условие сумма <=баланс
+
 let balance = 10000;
 const payment = 2000;
+
+console.log(`Общая стоимость заказа ${payment} кредитов. 
+    Проверяем количество доступных средств на счету`)
+if (balance >= payment) {
+  console.log('ok');
+  //balance = balance - payment 
+ // let amaunt = balance - payment;
+  //короче 
+  balance -= payment;
+  console.log(`На счету осталось ${balance} кредитов`);
+
+} else {
+  console.log('На счету недостаточно средств для проведения операции!');
+};
+console.log('Операция завершена');
+
 
 /* Напиши скрипт подсчета суммы покупки в магазине со скидкой в зависимости от
 потраченной за все время (партнерская программа). 
@@ -27,6 +46,35 @@ const payment = 2000;
 
 * - В результате вывести сообщение "Оформляем заказ на сумму [сумма] со скидкой [скидка]%"
 */
-const totalSpent = 2000;
-let payment = 500;
+const totalSpent = 0;
+let payment1 = 500;
 let discount = 0;
+
+if (totalSpent < 100) {
+  console.log('не партнер, скидка 0%');
+  discount = 0;
+}
+
+else if (totalSpent >= 100 && totalSpent < 1000) {
+  console.log('бронзовый партнер, скидка 2%');
+  discount = 0.02;
+}
+else if (totalSpent >= 1000 && totalSpent < 5000) {
+  console.log('серебряный партнер, скидка 5%');
+  discount = 0.05;
+}
+else {
+  console.log('золотой партнер, скидка 10%');
+  discount = 0.1;
+}
+  
+//   (totalSpent < 100) {
+//     discount = 0 % не правильно % непонятен java
+//   console.log('не партнер');
+// }
+// else if (totalSpent > 5000) {discount = 10%}
+// else if (totalSpent > 100 && totalSpent < 1000) { discount = 2%
+// } else if (totalSpent > 1000 && totalSpent < 5000) { discount = 5%
+// };
+// не правильно --- const total = payment1 - discount;
+console.log(`Оформляем заказ на сумму ${payment1} со скидкой ${discount * 100}%`);
