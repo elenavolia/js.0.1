@@ -118,7 +118,52 @@ let message = '';
 
 console.log(logins.includes(loginToFind));
 
-//тернарный оператор
+//тернарный оператор декларативный код
 
 const message1 = logins.includes(loginToFind) ? `Пользователь ${loginToFind} найден` : `Пользователь ${loginToFind} не найден`;
 console.log(message1);
+
+// *
+//  * Напиши скрипт поиска самого маленького числа в массиве,
+//  * при условии что числа уникальные (не повторяются).
+//  */
+
+const numbers1 = [51, 18, 13, 24, 7, 85, 19];
+
+let smallestNumber = numbers1[0];
+
+
+for (const number1 of numbers1) {
+  // console.log(number1);
+
+  if (number1 < smallestNumber) {
+    smallestNumber = number1;
+  }
+  
+}
+console.log('smallestNumber: ', smallestNumber);
+
+/*
+ * Напиши скрипт, который объединяет все элементы массива в одно строковое значение.
+ * Элементов может быть произвольное кол-во.
+ * Пусть элементы массива  в строке будут разделены запятой.
+ * - Сначала через for
+ * - Потом через join()
+ */
+
+const friends = ['Mango', 'Poly', 'Kiwi', 'Ajax'];
+// let string = '';
+
+// for (const friend of friends) {
+//   string += friend  + ',' + ' ';
+// }
+// //console.log(string.slice(0, string.length - 2)); = не верно
+
+// string = string.slice(0, string.length - 2);
+
+//можно сделать проще:
+
+const string = friends.join(', ');
+
+console.log(string);
+// Должно получиться 'Mango,Poly,Kiwi,Ajax'
