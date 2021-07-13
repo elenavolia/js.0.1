@@ -167,3 +167,155 @@ const string = friends.join(', ');
 
 console.log(string);
 // Должно получиться 'Mango,Poly,Kiwi,Ajax'
+
+/*
+ * Напиши скрипт который заменяет регистр каждого символа в строке на противоположный.
+ * Например, если строка «JavaScript», то на выходе должена быть строка «jAVAsCRIPT».
+ */
+
+const string1 = '«JavaScript»';
+const letters = string1.split('');
+//новая строка
+let invertedString = '';
+
+console.log(letters);
+
+for (const letter of letters) {
+  console.log(letter);
+  
+  //длинно: 
+  //if (letter === letter.toLowerCase()) {
+  //   console.log('Эта буква в нижнем регистре!', letter);
+
+  //   invertedString += letter.toUpperCase();
+  // } else {
+  //   console.log('Эта буква в верхнем регистре!', letter);
+  //   invertedString += letter.toLowerCase();
+  // }
+
+//короче
+
+  invertedString += letter === letter.toLowerCase()
+    ? letter.toUpperCase()
+    : letter.toLowerCase();
+}
+
+console.log('invertedString: ', invertedString);
+
+
+
+/*
+ * Делаем slug в URL из названия статьи (например на dev.to)
+ * Заголовок статьи состоит только из букв и пробелов
+ *
+ * - Нормализируем строку
+ * - Разбиваем по словам
+ * - Сшиваем в строку с разделителями
+ */
+
+// Должно получиться top-10-benefits-of-react-framework
+const title = 'Top 10 benefits of React framework';
+
+const normalizedTitel = title.toLowerCase();
+const words = normalizedTitel.split(' ');
+console.log(words);
+const slug = words.join('-');
+console.log('slug; ', slug);
+
+//короче:
+
+const slug1 = title.toLowerCase().split(' ').join('-');
+  console.log('slug1: ', slug1);
+
+
+  /*
+ * Напиши скрипт который считает сумму элементов двух массивов.
+ */
+
+const array1 = [5, 10, 15, 20];
+const array2 = [10, 20, 30];
+let total3 = 0;
+
+//неправильно:
+// for (let i = 0; i < array1.length; i += 1) {
+//   console.log(array1[i]);
+//   console.log(array2[i]);
+// }
+
+//сложно:
+for (let i = 0; i < array1.length; i += 1) {
+  total3 += array1[i];
+}
+for (let i = 0; i < array2.length; i += 1) {
+  total3 += array2[i];
+}
+console.log('total3: ', total3);
+
+
+//сшить методом concat:
+
+const numbers2 = array1.concat(array2);
+console.log(numbers2);
+
+for (const number of numbers2) {
+  total3 += number;
+  
+}
+console.log('total: ', total3);
+
+
+/*
+ * Работем с коллекцией карточек в trello
+ * - Метод splice()
+ * - Удалить
+ * - Добавить
+ * - Обновить
+ */
+
+const cards = [
+  'Карточка-1',
+  'Карточка-2',
+  'Карточка-3',
+  'Карточка-4',
+  'Карточка-5',
+];
+
+console.table(cards);
+
+/*
+ * Удаление (по индексу), метод indexOf()
+ */
+
+ //найдем индекс элементов
+const cardToRemove = 'Карточка-3';
+const index1 = cards.indexOf(cardToRemove);
+console.log(index1);
+cards.splice(index1, 1);
+console.table(cards);
+
+/*
+ * Добавление (по индексу)
+ */
+const cardToInsert = 'Карточка-6';
+const index = 3;
+
+// cards.splice(3, 0, 5, 10, 20);
+// // 3 - куда вставить, 0 - что удалять
+// console.table(cards);
+
+cards.splice(index, 0, cardToInsert);
+// 3 - куда вставить, 0 - что удалять
+console.table(cards);
+
+
+/*
+ * Обновление (по индексу)
+ */
+const cardToUpdate = 'Карточка-4';
+
+cards.splice(2, 1, 555);
+console.table(cards);
+
+const index4 = cards.indexOf(cardToUpdate);
+cards.splice(index4, 1, 'обновленная Карточка-4');
+console.table(cards);
