@@ -127,3 +127,234 @@ console.log(findLogin1(logins, 'avocod3r'));
 console.log(findLogin1(logins, 'k1widab3st'));
 console.log(findLogin1(logins, 'jam4l'));
 console.log(findLogin1(logins, 'poly1scute'));
+
+
+
+//дано:
+/*
+ * Напиши функцию findSmallesNumber(numbers) для поиска самого маленького числа в массиве,
+ * при условии что числа уникальные (не повторяются).
+ */
+// const numbers = [51, 18, 13, 24, 7, 85, 19];
+
+//   let smallestNumber = numbers[0];
+
+//   for (const number of numbers) {
+//     if (number < smallestNumber) {
+//       smallestNumber = number;
+//     }
+// };
+
+//console.log ('smallestNumber is ', smallestNumber);
+
+
+//console.log(findSmallesNumber([3, 8, 12, -2, 15])); // -2
+//console.log(findSmallesNumber([100, 54, 8, 12, 47])); // 8
+//console.log(findSmallesNumber([7, 21, 84, 15, 4])); // 4
+
+//решение:
+
+let smallestNumber = 0;
+
+const findSmallestNumber = function (numbers) {
+  let smallestNumber = numbers[0];
+  for (const number of numbers) {
+    if (number < smallestNumber) {
+      smallestNumber = number;
+    }
+  }
+  return smallestNumber;
+}
+
+console.log ('smallestNumber = ', smallestNumber);
+
+console.log(findSmallestNumber([3, 8, 12, -2, 15])); // -2
+console.log(findSmallestNumber([100, 54, 8, 12, 47])); // 8
+console.log(findSmallestNumber([7, 21, 84, 15, 4])); // 4
+
+
+//дано:
+
+/*
+ * Напиши функцию changeCase(string) которая заменяет регистр
+ * каждого символа в строке на противоположный.
+ * Например, если строка «JavaScript», то на выходе должена быть строка «jAVAsCRIPT».
+ */
+
+// const string = 'qWeRTzxCv';
+// // const letters = string.split('');
+//  let invertedString = '';
+
+
+//   for (const letter of letters) {
+//     const isEqual = letter === letter.toLowerCase();
+
+//     invertedString += isEqual
+//       ? letter.toUpperCase()
+//       : letter.toLowerCase();
+//   }
+
+// console.log('invertedString: ', invertedString);
+
+// console.log(changeCase('qweRTY')); // QWErty
+// console.log(changeCase('mAnGo')); // MaNgO
+// console.log(changeCase('AjAx')); // aJaX
+
+//решение:
+
+
+const changeCase = function (string) {
+
+ const letters = string.split('');
+ 
+   let invertedString = '';
+
+  for (const letter of letters) {
+ 
+   // const isInLowerCase = letter === letter.toLowerCase();
+
+    const isInLowerCase = letter === letter.toLowerCase();
+    invertedString += isInLowerCase
+      ? letter.toUpperCase()
+      : letter.toLowerCase();
+  }
+
+  return invertedString;
+};
+
+console.log(changeCase('qweRTY')); // QWErty
+console.log(changeCase('mAnGo')); // MaNgO
+console.log(changeCase('AjAx')); // aJaX
+
+
+//дано
+/*
+ * Напиши функцию slugify(string) которая получает строку и возвращает URL-slug
+ * Строка состоит только из букв и пробелов
+ */
+
+// const title = 'Top 10 benefits of React framework';
+
+// const normalizedTitele = title.toLowerCase();
+// const words = normalizedTitele.split(' ');
+// const slug = words.join('-');
+// const slug1 = title.toLowerCase().split(' ').join('-');
+
+// console.log(slug1);
+
+// console.log(slugify('Top 10 benefits of React framework'));
+// console.log(slugify('Azure Static Web Apps are Awesome'));
+// console.log(slugify('Technical writing tips for non-native English speakers'));
+
+//решение
+
+
+const slugify = function (string) {
+
+ //   const normalizedTitele = title.toLowerCase();
+// const words = normalizedTitele.split(' ');
+//   const slug = words.join('-');
+//   return slug;
+  return string.toLowerCase().split(' ').join('-');
+}
+
+
+console.log(slugify('Top 10 benefits of React framework'));
+console.log(slugify('Azure Static Web Apps are Awesome'));
+console.log(slugify('Technical writing tips for non-native English speakers'));
+
+
+
+// const slugify = function (string) {
+//   // const normalizedString = string.toLowerCase();
+//   // const words = normalizedString.split(' ');
+//   // const slug = words.join('-');
+//   // return slug;
+
+//   return string.toLowerCase().split(' ').join('-');
+// };
+
+
+
+//дано
+
+/*
+ * Псевдомассив arguments и Array.from и ...
+ */
+
+// const fn = function () { };
+// fn(1, 2, 3);
+// fn(1, 2, 3, 4, 5);
+// fn(1, 2, 3, 4, 5, 6, 7);
+
+//решение
+const fn = function (...args) {
+// ...имя - преобразует все значения в массив
+  //старый метод: 
+  //console.log(arguments);
+  // const args = Array.from(arguments);
+  console.log('arguments: ',args)
+};
+fn(1, 2, 3);
+fn(1, 2, 3, 4, 5);
+fn(1, 2, 3, 4, 5, 6, 7);
+
+
+
+/*
+ * Напиши функцию add для сложения произвольного количества аргументов (чисел)
+  * Array.from
+ * - Операция ... (rest)
+ */
+
+//const add = function () {};
+const add = function (...args1) {
+  console.log('arguments1: ', args1);
+  let total = 0;
+  for (const arg of args1) { total += arg }
+  return total;
+};
+
+console.log(add(1, 2, 3));
+console.log(add(1, 2, 4, 5, 6));
+
+
+
+//дано
+/*
+ * Напиши функцию filterNumbers(array [, number1, ...]) которая:
+ * - первым аргументом принимает массив чисел
+ * - после первого аргумента может быть произвольное количество других аргументов которые будут числами.
+ * - Функция должна вернуть новый массив, в котором будут только те аргументы, начиная со второго,
+ *   для которых есть аналог в оригинальном массиве.
+ */
+
+
+
+//const filterNumbers = function () {};
+
+// console.log(filterNumbers([1, 2, 3, 4, 5], 10, 15, 2, 3, 8)); // [2, 3]
+// console.log(filterNumbers([10, 15, 25, 30], 23, 30, 18, 15)); // [30, 15]
+// console.log(filterNumbers([100, 200, 300, 400, 500], 7, 12, 200, 64)); // [200]
+
+//решение
+const filterNumbers = function (array, ...args2) { 
+  // console.log('array: ', array);
+  // console.log('arguments2: ', args2);
+
+  const unuqueElements = [];
+
+  for (const element of array) {
+    if (args2.includes(element)) {
+      unuqueElements.push(element);
+      console.log(`${element} есть везде!!!`);
+    }
+    
+    
+  }
+  return unuqueElements;
+};
+
+console.log(filterNumbers([1, 2, 3, 4, 5], 10, 15, 2, 3, 8)); // [2, 3]
+console.log(filterNumbers([10, 15, 25, 30], 23, 30, 18, 15)); // [30, 15]
+console.log(filterNumbers([100, 200, 300, 400, 500], 7, 12, 200, 64)); // [200]
