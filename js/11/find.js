@@ -30,6 +30,10 @@ console.log(playerWithId);
 //const playerWithId = players.find( player => player.id === playerIdToFind);
 //console.log(playerWithId);
 
+const findPlayerById = (allPlayer, playerId) => {
+  return allPlayer.find(({ id }) => id === playerId);
+};
+
 // console.log(finPlayerById(players, 'player-1'));
 // console.log(finPlayerById(players, 'player-4'));
 
