@@ -37,3 +37,15 @@ const stats = tags.reduce((acc, tag) => {
 
 
 console.log(stats);
+
+//цепочки:
+
+const starts1 = tweets
+    .flatMap(t => t.tags)
+    .reduce((acc, tag) => {
+    return {
+        ...acc,
+        [tag]: acc[tag] ? acc[tag] + 1 : 1,
+    };
+}, {});
+console.log('starts1: ', starts1)
